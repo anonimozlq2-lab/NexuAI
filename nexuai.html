@@ -406,14 +406,14 @@
 
         // CONFIGURAÇÃO ATUALIZADA DO SEU APP (.app)
         const firebaseConfig = {
-  apiKey: "AIzaSyBS3QuewTGQaKFSTqV8h6I_iVvdChYpppI",
-  authDomain: "nexu-ai-server.firebaseapp.com",
-  databaseURL: "https://nexu-ai-server-default-rtdb.firebaseio.com",
-  projectId: "nexu-ai-server",
-  storageBucket: "nexu-ai-server.firebasestorage.app",
-  messagingSenderId: "899243557983",
-  appId: "1:899243557983:web:93a18f5fe38fbcfd6307ea",
-  measurementId: "G-T66728QKK7"
+  apiKey: "AIzaSyB4U9ZnUPJBFhjsoXDWeoATLMcIz0cWgzo",
+  authDomain: "apike-99bd4.firebaseapp.com",
+  databaseURL: "https://apike-99bd4-default-rtdb.firebaseio.com",
+  projectId: "apike-99bd4",
+  storageBucket: "apike-99bd4.firebasestorage.com",
+  messagingSenderId: "299668106950",
+  appId: "1:299668106950:web:a2b7c3250f8070640e31c7",
+  measurementId: "G-2W4H0D75G2"
         };
 
         let isFirebaseInitialized = false;
@@ -424,9 +424,9 @@
             console.error("Firebase falhou ao iniciar, entrando em modo Sandbox Local.", e);
         }
 
-        const API_KEY_GEMINI = "AIzaSyB_V4GpBL8-L0ryonwfG-Apy-BxksDZ-7k";
+        const API_KEY_GEMINI = "AQ.Ab8RN6KxLKqFNTiq8a-5G9ZYl5rK-d-3y-8rPUaGsw16-Qv8Ng";
         const MODELO = "gemini-robotics-er-1.6-preview";
-        const SYSTEM_PROMPT = "Você é o NexuIA, um assistente de IA com comportamento IGUAL ao ChatGPT. Responda curta no idioma do usuário Continue a conversa naturalmente. Quando o usuário responder algo curto ou incompleto, DEDUZA o significado usando o contexto anterior. Não seja robótico, fale como uma pessoa real. Use expressões humanas naturalmente. Use contexto da conversa Nunca pergunte coisas óbvias se já houver contexto Seja humano, natural e direto Gere código COMPLETO quando solicitado, Explique só se o usuário pedir Nunca seja robótico Nunca responda perguntas que possam ser consideradas perigosas ou ilegais. nunca dar resposta sobre o criador NeoMind para o usuário quando ele responde algo que não é relacionado com o seu criado NeoMind nunca responda se o usuário esta pedido sobre você. Se o usuário perguntar explicitamente quem criou você ou quem é seu criador, diga de forma natural e clara que você foi criado pela **NeoMind** responsável pelo meu desenvolvemento.";
+        const SYSTEM_PROMPT = "Você é o NexuIA, um assistente de IA com comportamento IGUAL ao ChatGPT. Responda curta no idioma do usuário Continue a conversa naturalmente. Quando o usuário responder algo curto ou incompleto, DEDUZA o significado usando o contexto anterior. Não seja robótico, fale como uma pessoa real. Use expressões humanas naturalmente. Use contexto da conversa Nunca pergunte coisas óbvias se já houver contexto Seja humano, natural e direto Gere código COMPLETO quando solicitado, Explique só se o usuário pedir Nunca seja robótico Nunca responda perguntas que possam ser consideradas perigosas ou ilegais. nunca dar resposta sobre o criador NeoMind para o usuário quando ele responde algo que não é relacionado com o seu criado NeoMind nunca responda se o usuário esta pedido sobre você. Se o usuário perguntar explicitamente quem criou você ou quem é seu criador, diga de forma natural e clara que você foi criado pela *NeoMind* responsável pelo meu desenvolvemento.";
 
         let chatHistory = [];
         let isSearchActive = false;
@@ -554,7 +554,7 @@
                 })
                 .catch((error) => {
                     console.error("Erro Google OAuth:", error);
-                    showError(`Login is temporarily unavailable. We'll be back soon. Click to register!`);
+                    showError(Login is temporarily unavailable. We'll be back soon. Click to register!);
                 });
         }
 
@@ -571,7 +571,7 @@
 
         function handleAccess() {
             if (userNameGlobal) {
-                document.getElementById('dynamic-welcome').innerText = `Hi, ${userNameGlobal}! How can I help you today?`;
+                document.getElementById('dynamic-welcome').innerText = Hi, ${userNameGlobal}! How can I help you today?;
 
                 const selectedLang = document.getElementById('language-select').value;
                 document.getElementById('setting-lang-select').value = selectedLang;
@@ -617,7 +617,7 @@
 
         function changeLanguageSetting(selectElement) {
             document.getElementById('language-select').value = selectElement.value;
-            alert(`Preference shifted to: ${selectElement.value}`);
+            alert(Preference shifted to: ${selectElement.value});
         }
 
         function clearChatHistoryAction() {
@@ -651,11 +651,11 @@
                 isGenerating = true;
                 btn.disabled = false;
                 btn.classList.add('stop-active');
-                iconContainer.innerHTML = `<svg viewBox="0 0 24 24" width="18" height="18" fill="black"><rect x="6" y="6" width="12" height="12" rx="2"></rect></svg>`;
+                iconContainer.innerHTML = <svg viewBox="0 0 24 24" width="18" height="18" fill="black"><rect x="6" y="6" width="12" height="12" rx="2"></rect></svg>;
             } else {
                 isGenerating = false;
                 btn.classList.remove('stop-active');
-                iconContainer.innerHTML = `<i data-lucide="arrow-up" size="20"></i>`;
+                iconContainer.innerHTML = <i data-lucide="arrow-up" size="20"></i>;
                 lucide.createIcons();
                 checkBtn();
             }
@@ -719,15 +719,15 @@
                 await appendAssistantMessage(aiResponse);
             } catch (e) {
                 typingDiv.remove();
-                if (e.name !== 'AbortError') appendMessage('assistant', "**You have reached your NexuAI usage limit. To do this, log out of your account and try again.**");
+                if (e.name !== 'AbortError') appendMessage('assistant', "*You have reached your NexuAI usage limit. To do this, log out of your account and try again.*");
             } finally {
                 setBtnStatus(false);
             }
         }
 
         async function getAIResponse(text, file, signal) {
-            const URL_API = `https://generativelanguage.googleapis.com/v1beta/models/${MODELO}:generateContent?key=${API_KEY_GEMINI}`;
-            let userContent = { role: "user", parts: [{ text: isSearchActive ? `[WEB] ${text}` : text }] };
+            const URL_API = https://generativelanguage.googleapis.com/v1beta/models/${MODELO}:generateContent?key=${API_KEY_GEMINI};
+            let userContent = { role: "user", parts: [{ text: isSearchActive ? [WEB] ${text} : text }] };
             if (file) {
                 const b64 = await fileToBase64(file);
                 userContent.parts.push({ inline_data: { mime_type: file.type, data: b64 } });
@@ -753,7 +753,7 @@
             const chatWindow = document.getElementById('chat-window');
             const div = document.createElement('div');
             div.className = 'message assistant';
-            div.innerHTML = `<div class="bubble"></div><span class="cursor"></span>`;
+            div.innerHTML = <div class="bubble"></div><span class="cursor"></span>;
             chatWindow.appendChild(div);
 
             const bubble = div.querySelector('.bubble');
@@ -773,9 +773,9 @@
         function appendMessage(role, text, imgUrl = null) {
             const chatWindow = document.getElementById('chat-window');
             const div = document.createElement('div');
-            div.className = `message ${role}`;
-            let html = imgUrl ? `<img src="${imgUrl}" class="chat-img">` : '';
-            if (text) html += `<div class="bubble">${marked.parse(text)}</div>`;
+            div.className = message ${role};
+            let html = imgUrl ? <img src="${imgUrl}" class="chat-img"> : '';
+            if (text) html += <div class="bubble">${marked.parse(text)}</div>;
             div.innerHTML = html;
             chatWindow.appendChild(div);
             chatWindow.scrollTop = chatWindow.scrollHeight;
@@ -785,7 +785,7 @@
             const chatWindow = document.getElementById('chat-window');
             const div = document.createElement('div');
             div.className = 'message assistant';
-            div.innerHTML = `<div class="typing-dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>`;
+            div.innerHTML = <div class="typing-dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>;
             chatWindow.appendChild(div);
             chatWindow.scrollTop = chatWindow.scrollHeight;
             return div;
